@@ -4,9 +4,9 @@ var http = require('http');
 var https = require('https');
 
 
-var cert_prv  = fs.readFileSync(path.join(__dirname, 'ssl/server.key'), 'utf8');
-var cart_pub = fs.readFileSync(path.join(__dirname, 'ssl/server.crt'), 'utf8');
-var cert = {key: cert_prv, cert: cart_pub};
+var cert_priv = fs.readFileSync(path.join(__dirname, 'ssl/server.key'), 'utf-8');
+var cart_pub = fs.readFileSync(path.join(__dirname, 'ssl/server.crt'), 'utf-8');
+var cert = {key: cert_priv, cert: cart_pub };
 
 
 var express = require('express');
