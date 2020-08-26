@@ -1,16 +1,15 @@
-var fs = require('fs');
-var path = require('path');
-var http = require('http');
-var https = require('https');
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const express = require('express');
 
 
 var cert_priv = fs.readFileSync(path.join(__dirname, 'ssl/server.key'), 'utf-8');
 var cart_pub = fs.readFileSync(path.join(__dirname, 'ssl/server.crt'), 'utf-8');
 var cert = {key: cert_priv, cert: cart_pub };
 
-
-var express = require('express');
 var app = new express();
+
 
 app.get('/', (req, res) => {
     res.status(200).send('You have reached this domain\'s parking page.');
@@ -21,13 +20,6 @@ app.all('*', (req, res) => {
 });
 
 
-var http_server = http.createServer(app);
-var https_server = https.createServer(cert, app);
-
-http_server.listen(8080, () => {
-    console.log('HTTP Server started listening on localhost:8080');
-});
-
-https_server.listen(8443, () => {
+https.createServer(cert, app).listen(8443, () => {
     console.log('HTTPS Server started listening on localhost:8443');
 });
