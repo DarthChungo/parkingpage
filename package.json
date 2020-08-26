@@ -4,7 +4,7 @@
   "description": "A simple temporary parking page website.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DarthChungo/parkingpage/issues"
   },
-  "homepage": "https://github.com/DarthChungo/parkingpage#readme"
+  "homepage": "https://github.com/DarthChungo/parkingpage#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
