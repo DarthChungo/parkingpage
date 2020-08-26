@@ -1,0 +1,19 @@
+{
+  "name": "parkingpage",
+  "version": "1.0.0",
+  "description": "A simple temporary parking page website.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarthChungo/parkingpage.git"
+  },
+  "author": "Antonio de Haro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DarthChungo/parkingpage/issues"
+  },
+  "homepage": "https://github.com/DarthChungo/parkingpage#readme"
+}
