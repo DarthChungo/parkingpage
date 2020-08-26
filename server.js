@@ -24,5 +24,10 @@ app.all('*', (req, res) => {
 var http_server = http.createServer(app);
 var https_server = https.createServer(cert, app);
 
-http_server.listen(8080);
-https_server.listen(8443);
+http_server.listen(8080, () => {
+    console.log('HTTP Server started listening on localhost:8080');
+});
+
+https_server.listen(8443, () => {
+    console.log('HTTPS Server started listening on localhost:8443');
+});
