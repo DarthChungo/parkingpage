@@ -13,7 +13,7 @@ var express = require('express');
 var app = new express();
 
 app.get('/', (req, res) => {
-    res.send('You have reached this domain\'s parking page.');
+    res.status(200).send('You have reached this domain\'s parking page.');
 });
 
 app.all('*', (req, res) => {
