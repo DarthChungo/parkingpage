@@ -1,15 +1,28 @@
-const express = require('express');
-let app = new express();
+var fs = require('fs');
+var path = require('path');
+var http = require('http');
+var https = require('https');
 
-app.get('/', async(req, res) => {
-    await res.send('You have reached this domain\'s parking page.');
+
+var cert_prv  = fs.readFileSync(path.join(__dirname, 'ssl/server.key'), 'utf8');
+var cart_pub = fs.readFileSync(path.join(__dirname, 'ssl/server.crt'), 'utf8');
+var cert = {key: cert_prv, cert: cart_pub};
+
+
+var express = require('express');
+var app = new express();
+
+app.get('/', (req, res) => {
+    res.send('You have reached this domain\'s parking page.');
 });
 
-app.all('*', async(req, res) => {
-    await res.status(400).send('Unknown path.');
+app.all('*', (req, res) => {
+    res.status(400).send('Unknown path.');
 });
 
-let port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log(`Started listening on localhost:${port}`);
-});
+
+var http_server = http.createServer(app);
+var https_server = https.createServer(cert, app);
+
+http_server.listen(8080);
+https_server.listen(8443);

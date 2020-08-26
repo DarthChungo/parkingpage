@@ -1,6 +1,6 @@
 {
   "name": "parkingpage",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple temporary parking page website.",
   "main": "server.js",
   "scripts": {
@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/DarthChungo/parkingpage#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "path": "^0.12.7"
   }
 }
